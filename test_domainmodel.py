@@ -5,6 +5,7 @@ from domainmodel.publisher import Publisher
 class TestPublisher:
 
     def test_construction(self):
+        print("Test_con")
         publisher1 = Publisher("Avatar Press")
         assert str(publisher1) == "<Publisher Avatar Press>"
         publisher2 = Publisher("  ")
