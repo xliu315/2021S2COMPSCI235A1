@@ -1,13 +1,13 @@
 class Publisher:
 
     def __init__(self, publisher_name):
+        print(type(publisher_name))
 
-        if publisher_name is int:
+        if type(publisher_name) == int:
             self.__name = "N/A"
-
         elif publisher_name.isspace():
             self.__name = "N/A"
-        elif isinstance(publisher_name, str):
+        elif type(publisher_name) == str:
             publisher_name = publisher_name.strip()
             self.__name = publisher_name
 
@@ -21,11 +21,12 @@ class Publisher:
     @name.setter
     def name(self, publisher_name):
         # TODO
-        if isinstance(publisher_name, str):
+        if type(publisher_name) ==  str:
             self.__name = publisher_name
         elif publisher_name.isspace():
             self.__name = "N/A"
-        self.__name = publisher_name
+        else:
+            self.__name = publisher_name
 
 
     def __repr__(self):
