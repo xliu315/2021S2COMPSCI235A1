@@ -1,47 +1,35 @@
 class Publisher:
 
-    def __init__(self, publisher_name):
-        print(type(publisher_name))
-
-        if type(publisher_name) == int:
+    def __init__(self, publisher_name: str):
+        self.__name = ''
+        if not isinstance(publisher_name, str) or len(publisher_name.strip()) == 0:
             self.__name = "N/A"
-        elif publisher_name.isspace():
-            self.__name = "N/A"
-        elif type(publisher_name) == str:
-            publisher_name = publisher_name.strip()
-            self.__name = publisher_name
-
-        # TODO
+        else:
+            self.__name = publisher_name.strip()
 
     @property
     def name(self) -> str:
         return self.__name
 
-
     @name.setter
     def name(self, publisher_name):
         # TODO
-        if type(publisher_name) ==  str:
-            self.__name = publisher_name
-        elif publisher_name.isspace():
-            self.__name = "N/A"
-        else:
-            self.__name = publisher_name
-
+        self.__name = publisher_name
 
     def __repr__(self):
         # we use access via the property here
-        return f'<Publisher {self.name}>'
+        return f'<Publisher {self.__name}>'
 
     def __eq__(self, other):
         if not isinstance(other, self.__class__):
             return False
-        return other.name == self.name
+        return other.__name == self.__name
 
     def __lt__(self, other):
         # TODO
-        return True
+
+        return self.__name < other.__name
 
     def __hash__(self):
         # TODO
-        return 2
+        return hash(self.__name)
